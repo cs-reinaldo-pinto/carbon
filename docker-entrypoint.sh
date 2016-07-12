@@ -15,6 +15,8 @@ fi
 if [ "$1" = '/opt/graphite/bin/carbon-cache.py' ]; then
 		# Remove the pid if restarting the docker (normally done by init.d)
 		rm -f /opt/graphite/storage/carbon-cache-a.pid
+		sudo groupadd carbon
+		sudo useradd -g carbon carbon
 		chown -R carbon:carbon /opt/graphite
 fi
 
